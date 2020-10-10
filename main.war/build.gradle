@@ -1,0 +1,9 @@
+apply from: "author.gradle"
+apply from: '../lib-plugin.gradle'
+apply from: '../lib-common.gradle'
+
+dependencies {
+    implementation lib.lab_first
+    implementation lib.lab_second
+    implementation lib.lab_third
+}

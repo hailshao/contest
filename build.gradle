@@ -1,0 +1,5 @@
+configure(subprojects) {
+    apply plugin:'java'
+    apply from: '../lib-plugin.gradle'
+    apply from: '../lib-common.gradle'
+}

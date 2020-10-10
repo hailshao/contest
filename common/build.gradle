@@ -1,0 +1,10 @@
+dependencies {
+    compile lib.spring_web
+    compile lib.spring_boot_starter_jdbc
+    compile 'tk.mybatis:mapper-spring-boot-starter:2.1.5'
+    api lib.javax_persistence_api
+    api 'ch.qos.logback:logback-classic:1.2.3'
+    api lib.poi
+    api lib.poi_ooxml
+    compile fileTree(dir:'lib',includes:['*jar'])
+}

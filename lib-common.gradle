@@ -1,0 +1,35 @@
+apply plugin: 'java'
+ext {
+    gcGroup       = "com.team7"
+    gcVersion     = "0.0.1.+"
+    lablib = [
+            lab_common:												"${gcGroup}:common:${gcVersion}",
+            lab_first:												"${gcGroup}:first:${gcVersion}",
+            lab_second:												"${gcGroup}:second:${gcVersion}",
+            lab_third:												"${gcGroup}:third:${gcVersion}",
+    ]
+    lib.putAll(lablib)
+}
+configurations.all {
+    resolutionStrategy {
+        force lib.lab_common
+        force lib.lab_first
+        force lib.lab_second
+        force lib.lab_third
+    }
+}
+dependencies {
+    api lib.lab_common
+}
+
+repositories {
+    maven {
+//        url "http://nvwa.jiuqi.com.cn/nexus/repository/maven-ent-public/"
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+        credentials {
+            username = nexusUsername
+            password = nexusPassword
+        }
+    }
+}
+

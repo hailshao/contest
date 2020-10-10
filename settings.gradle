@@ -1,0 +1,5 @@
+rootProject.name = 'team7'
+include('common')
+include('first')
+include('second')
+include('third')

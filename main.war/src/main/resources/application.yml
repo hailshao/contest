@@ -1,0 +1,43 @@
+server:
+  # 配置服务端口
+  port: 8888
+
+spring:
+  # 配置Redis服务。默认使用本地6379端口上的redis服务，无身份验证。
+  redis:
+    # 数据库索引
+    database: 0
+    # 单节点redis配置
+    host: 127.0.0.1
+    port: 6379
+    timeout: 60000
+    password:
+    # 集群配置
+    # cluster:
+    # nodes : 10.2.32.21:6379,10.2.32.22:6379,10.2.32.23:6379,10.2.32.21:6380,10.2.32.22:6380,10.2.32.23:6380
+    # 配置使用Lettuce连接池
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: -1
+        max-wait: -1
+  # 配置数据源。默认使用本地1521端口上的oracle服务，用户密码均为nr。
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.2.41.129:1521/cfsdb
+    username: shaohailin_01
+    password: shaohailin_01
+    # 配置使用kikari连接池  连接数 = ((核心数 * 2) + 有效磁盘数)
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 10
+      leak-detection-threshold: 120000
+      connection-timeout: 30000
+      max-lifetime: 600000
+      idle-timeout: 60000
+logging:
+  config: classpath:logback.xml
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,16 @@
+1、人员划分
+每个模块的负责人
+2、模块介绍
+UML建模 流程图 ：https://www.processon.com
+3、表结构
+
+4、程序架构
+工程拆分截图
+springboot + mybatis HikariCP
+线程池
+jvm配置 G1好处  
+Jmeter压力测试情况
+索引情况（redo）
+slf4j:logback
+
+结尾

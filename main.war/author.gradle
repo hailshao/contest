@@ -1,0 +1,11 @@
+ext {
+//    mvusr = System.getProperty("mvusr")
+//    if (mvusr != null) {
+//        nexusUsername = mvusr
+//    }
+
+//    mvpwd = System.getProperty("mvpwd")
+//    if (mvpwd != null) {
+//        nexusPassword = mvpwd
+//    }
+}

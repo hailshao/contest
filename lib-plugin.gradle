@@ -1,0 +1,433 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+apply plugin: 'java-library'
+
+ext {
+	printVersion 			     = "1.0.+"
+	springVersion                = "5.1.8.RELEASE"
+	springBootVersion            = "2.1.9.RELEASE"
+	springAmqpVersion            = "2.1.9.RELEASE"
+	springCloudVersion            = "2.1.2.RELEASE"
+	springSecurityVersion        = "5.1.5.RELEASE"
+	springSessionVersion         = "1.3.2.RELEASE"
+	hibernateVersion             = "5.3.0.Final"
+	hibernateValidatorVersion    = "6.0.9.Final"
+	liquibaseVersion             = "3.5.3"
+	feignOkhttpVersion           = "10.2.3"
+	
+	amqpClientVersion        = "5.2.0"
+	aspectjVersion           = "1.8.13"
+	commonsCompressVersion   = "1.19"
+	commonsFileUploadVersion = "1.3.3"
+	commonsIoVersion         = "2.6"
+	dom4jVersion             = "2.1.0"
+	jacksonVersion           = "2.9.5"
+	javaServletVersion       = "4.0.0"
+	lombokVersion            = "1.16.20"
+	rhinoVersion             = "1.7.7.1"
+	jsonVersion              = "20190722"
+	fastjsonVersion          = "1.2.69"
+	
+	slf4jVersion             = "1.7.25"
+	log4jVersion             = "1.2.17"
+	log4jWebVersion          = "2.12.1"
+
+	junit5JupiterVersion     = "5.2.0"
+	junit5PlatformVersion    = "1.2.0"
+	junit5VintageVersion     = "5.2.0"
+	mockitoVersion           = "2.17.0"
+	h2Version                = "1.4.193"
+    swagger2Version              = "2.8.0"
+	javaxPersistenceApiVersion = "2.2"
+	easyexcelVersion         = "2.1.7"
+
+	lib = [
+	  	javax_persistence_api: "javax.persistence:javax.persistence-api:${javaxPersistenceApiVersion}",
+		/* springframework */
+		spring_aop:                   "org.springframework:spring-aop:${springVersion}",
+		spring_beans:                 "org.springframework:spring-beans:${springVersion}",
+		spring_context:               "org.springframework:spring-context:${springVersion}",
+		spring_context_support:       "org.springframework:spring-context-support:${springVersion}",
+		spring_core:                  "org.springframework:spring-core:${springVersion}",
+		spring_expression:            "org.springframework:spring-expression:${springVersion}",
+		spring_jdbc:                  "org.springframework:spring-jdbc:${springVersion}",
+		spring_orm:                   "org.springframework:spring-orm:${springVersion}",
+		spring_oxm:                   "org.springframework:spring-oxm:${springVersion}",
+		spring_tx:                    "org.springframework:spring-tx:${springVersion}",
+		spring_web:                   "org.springframework:spring-web:${springVersion}",
+		spring_webmvc:                "org.springframework:spring-webmvc:${springVersion}",
+
+		/* springboot */
+         spring_boot_properties_migrator:                "org.springframework.boot:spring-boot-properties-migrator:${springBootVersion}",
+         spring_boot_devtools:                           "org.springframework.boot:spring-boot-devtools:${springBootVersion}",
+        spring_boot_starter_data_jpa:                  "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}",
+		spring_boot:                               "org.springframework.boot:spring-boot:${springBootVersion}",
+		spring_boot_autoconfigure:           "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}",
+		spring_boot_starter_amqp:            "org.springframework.boot:spring-boot-starter-amqp:${springAmqpVersion}",
+		spring_boot_starter_data_redis:      "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}",
+		spring_boot_starter:                    "org.springframework.boot:spring-boot-starter:${springBootVersion}",
+		spring_boot_starter_test:            "org.springframework.boot:spring-boot-starter-test:${springBootVersion}",
+		spring_boot_starter_tomcat:          "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}",
+		spring_boot_starter_web:             "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+		spring_boot_configuration_processor: "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}",
+		spring_boot_amqp:                    "org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}",
+		spring_boot_starter_logging:      "org.springframework.boot:spring-boot-starter-logging:${springBootVersion}",
+		spring_boot_starter_actuator:     "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}",
+		spring_boot_starter_webflux:      "org.springframework.boot:spring-boot-starter-webflux:${springBootVersion}",
+		spring_boot_starter_websocket:  "org.springframework.boot:spring-boot-starter-websocket:${springBootVersion}",
+		spring_boot_starter_jdbc:  "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}",
+		spring_boot_starter_log4j2:             "org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}",
+		feign_okhttp: "io.github.openfeign:feign-okhttp:${feignOkhttpVersion}",
+
+		//redis
+		jedis:                                             "redis.clients:jedis:2.9.3",
+        spring_data_redis:                          "org.springframework.data:spring-data-redis:2.1.9.RELEASE",
+		
+		/* spring cloud */
+		spring_cloud_starter_openfeign:      "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}",
+		spring_cloud_starter_stream_kafka: "org.springframework.cloud:spring-cloud-starter-stream-kafka:${springCloudVersion}",
+		spring_cloud_starter_gateway:        "org.springframework.cloud:spring-cloud-starter-gateway:${springCloudVersion}",
+		spring_cloud_gateway_webflux:      "org.springframework.cloud:spring-cloud-gateway-webflux:${springCloudVersion}",
+		//alibaba spring cloud
+		spring_cloud_starter_alibaba_nacos_config:         "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:0.9.0.RELEASE",
+		spring_cloud_starter_alibaba_nacos_discovery:     "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:0.9.0.RELEASE",
+		spring_cloud_starter_alibaba_sentinel:                 "org.springframework.cloud:spring-cloud-starter-alibaba-sentinel:0.9.0.RELEASE",
+		sentinel_spring_cloud_gateway_adapter:             "com.alibaba.csp:sentinel-spring-cloud-gateway-adapter:1.6.1",
+		
+		/* spring security */
+		spring_security_core:         "org.springframework.security:spring-security-core:${springSecurityVersion}",
+		spring_security_config:       "org.springframework.security:spring-security-config:${springSecurityVersion}",
+		spring_security_web:          "org.springframework.security:spring-security-web:${springSecurityVersion}",
+		spring_security_cas:          "org.springframework.security:spring-security-cas:${springSecurityVersion}",
+
+		/* spring session */
+		spring_session:               "org.springframework.session:spring-session:${springSessionVersion}",
+		
+		/* print */
+		print_xg:                         "com.beecode:xg.draw2d:${printVersion}",
+		print_xg_process:                 "com.beecode:xg.process:${printVersion}",
+		print_xg_process_table:           "com.beecode:xg.process.table:${printVersion}",
+		print_xg_process_barcode:         "com.beecode:xg.process.barcode:${printVersion}",
+		print_xg_gef:					  "com.beecode:xg.gef:${printVersion}",
+		print_xg_wt:					  "com.beecode:xg.wt:${printVersion}",
+		print_xg_print_pdf:				  "com.beecode:xg.print.pdf:${printVersion}",
+		print_xg_pdf:				      "com.beecode:xg.pdf:${printVersion}",
+
+		//quartz
+		quartz:                            "org.quartz-scheduler:quartz:2.3.1",
+		/* hibernate */
+		hibernate_core:               "org.hibernate:hibernate-core:${hibernateVersion}",
+		hibernate_c3p0:               "org.hibernate:hibernate-c3p0:${hibernateVersion}",
+		hibernate_validator:          "org.hibernate:hibernate-validator:${hibernateValidatorVersion}",
+
+		/* db */
+		h2:                           "com.h2database:h2:${h2Version}",
+		liquibase:                    "org.liquibase:liquibase-core:${liquibaseVersion}",
+
+		/* libs */
+		amqp_client:                  "com.rabbitmq:amqp-client:${amqpClientVersion}",
+		aspectj:                      "org.aspectj:aspectjweaver:${aspectjVersion}",
+		commons_compress:             "org.apache.commons:commons-compress:${commonsCompressVersion}",
+		commons_fileupload:           "commons-fileupload:commons-fileupload:${commonsFileUploadVersion}",
+		commons_io:                   "commons-io:commons-io:${commonsIoVersion}",
+		dom4j:                        "org.dom4j:dom4j:${dom4jVersion}",
+		jackson_annotations:          "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}",
+		jackson_databind:             "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
+		jackson_datatype_jdk8:        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jacksonVersion}",
+		jackson_datatype_jsr310:      "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}",
+		jackson_core:                 "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}",
+		javax_servlet_api:            "javax.servlet:javax.servlet-api:${javaServletVersion}",
+		lombok:                       "org.projectlombok:lombok:${lombokVersion}",
+		rhino:                        "org.mozilla:rhino:${rhinoVersion}",
+		json:                         "org.json:json:${jsonVersion}",
+		validation_api:			"javax.validation:validation-api:2.0.1.Final",
+		//alibaba
+		fastjson: 					          "com.alibaba:fastjson:${fastjsonVersion}",
+    	transmittable_thread_local: "com.alibaba:transmittable-thread-local:2.10.2",
+		orika_core:                         "ma.glasnost.orika:orika-core:1.5.4",
+		easyexcel:                    "com.alibaba:easyexcel:${easyexcelVersion}",
+		 /*
+		 Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，
+		 例如：
+		 集合 [collections] 、
+		 缓存 [caching] 、
+		 原生类型支持 [primitives support] 、
+		 并发库 [concurrency libraries] 、
+		 通用注解 [common annotations] 、
+		 字符串处理 [string processing] 、
+		 I/O 等等。
+		  所有这些工具每天都在被Google的工程师应用在产品服务中。
+		  */
+		 guava:											"com.google.guava:guava:25.1-jre",
+		  /* Swagger2 */
+         springfox_schema:                               "io.springfox:springfox-schema:${swagger2Version}",
+         springfox_swagger2:                             "io.springfox:springfox-swagger2:${swagger2Version}",
+         springfox_swagger_ui:                           "io.springfox:springfox-swagger-ui:${swagger2Version}",
+         //
+         /* oracle */
+         ojdbc6:                                         "com.oracle:ojdbc6:11.2.0.3",
+         /*性能最好的数据库连接池*/
+		 HikariCP:										"com.zaxxer:HikariCP:3.2.0",
+         
+		/* log */
+		slf4j_api:                    "org.slf4j:slf4j-api:${slf4jVersion}",
+		log4j:             						"log4j:log4j:${log4jVersion}",
+		log4j_web:                    "org.apache.logging.log4j:log4j-web:${log4jWebVersion}",
+
+		/* testing */
+		junit5_jupiter_api:           "org.junit.jupiter:junit-jupiter-api:${junit5JupiterVersion}",
+		junit5_jupiter_engine:        "org.junit.jupiter:junit-jupiter-engine:${junit5JupiterVersion}",
+		junit5_platform_launcher:     "org.junit.platform:junit-platform-launcher:${junit5PlatformVersion}",
+		junit5_platform_runner:       "org.junit.platform:junit-platform-runner:${junit5PlatformVersion}",
+		junit5_vintage_engine:        "org.junit.vintage:junit-vintage-engine:${junit5VintageVersion}",
+		mockito_core:                 "org.mockito:mockito-core:${mockitoVersion}",
+		mockito_junit_jupiter:        "org.mockito:mockito-junit-jupiter:${mockitoVersion}",
+
+	]
+	
+	
+	//jiuqi
+	freemarkerVersion 			= "2.3.28"
+	iTextVersion				="2.0.8"
+	coreRendererVersion			="R8"
+	flyingSaucerCoreVersion		="9.1.15"
+	
+    jaxbApiVersion               = "2.3.0"
+    oracleVersion                = "11.2.0.3"
+    mysqlVersion                 = "5.1.35"
+    swagger2Version              = "2.8.0"
+	GcspringSessionVersion         = "2.1.7.RELEASE"
+
+	gclib = [
+		 /*POI提供API给Java程序对Microsoft Office格式档案读和写的功能*/
+		 poi:											"org.apache.poi:poi:4.1.2",
+         poi_ooxml:											"org.apache.poi:poi-ooxml:4.1.2",
+		 jxl:											"net.sourceforge.jexcelapi:jxl:2.6",
+		 iText:							"com.lowagie:itext:${iTextVersion}",
+		 commons_beanutils:								"commons-beanutils:commons-beanutils:1.9.3",
+		 commons_lang3:									"org.apache.commons:commons-lang3:3.7",
+         jaxb_api:                                       "javax.xml.bind:jaxb-api:${jaxbApiVersion}",
+         /* mysql */
+         mysql_connector_java:                           "mysql:mysql-connector-java:${mysqlVersion}",
+         /* spring session */
+		spring_session_core:          "org.springframework.session:spring-session-core:${GcspringSessionVersion}",
+		spring_session_jdbc:          "org.springframework.session:spring-session-jdbc:${GcspringSessionVersion}",
+		spring_session_data_redis:    "org.springframework.session:spring-session-data-redis:${GcspringSessionVersion}",
+		
+		org_freemarker:				  "org.freemarker:freemarker:${freemarkerVersion}",
+		core_renderer:				"org.xhtmlrenderer:core-renderer:${coreRendererVersion}",
+		flying_saucer_core:			"org.xhtmlrenderer:flying-saucer-core:${flyingSaucerCoreVersion}",
+		cas_client_core:			"org.jasig.cas.client:cas-client-core:3.4.1",
+		jsoup:			            "org.jsoup:jsoup:1.11.3",
+	]
+	
+	lib.putAll(gclib)
+}
+
+configurations.all {
+	resolutionStrategy {
+		/* springboot */
+		force lib.spring_boot_properties_migrator
+		force lib.spring_boot_devtools
+		force lib.jaxb_api
+		force lib.mysql_connector_java
+		
+		force lib.spring_session_core
+		force lib.spring_session_jdbc
+		force lib.spring_session_data_redis
+
+		/* checkreport */
+		force lib.org_freemarker
+		force lib.iText
+		force lib.core_renderer
+		force lib.flying_saucer_core
+		force lib.cas_client_core
+		/* springframework */
+        force lib.javax_persistence_api
+		force lib.spring_aop
+		force lib.spring_beans
+		force lib.spring_context
+		force lib.spring_context_support
+		force lib.spring_core
+		force lib.spring_expression
+		force lib.spring_jdbc
+		force lib.spring_orm
+		force lib.spring_oxm
+		force lib.spring_tx
+		force lib.spring_web
+		force lib.spring_webmvc
+		//alibaba
+		force lib.fastjson
+		force lib.orika_core
+		force lib.transmittable_thread_local
+		//google
+		force lib.guava
+		//quartz
+		force lib.quartz
+		/* Swagger2 */
+		force lib.springfox_schema
+		force lib.springfox_swagger2
+		force lib.springfox_swagger_ui
+		/* oracle */
+        force lib.ojdbc6
+        /*性能最好的数据库连接池*/
+		force lib.HikariCP
+		/* springboot */
+		force lib.spring_boot_starter_data_jpa
+		force lib.spring_boot
+		force lib.spring_boot_autoconfigure
+		force lib.spring_boot_starter_amqp
+		force lib.spring_boot_starter_data_redis
+		force lib.spring_boot_starter_test
+		force lib.spring_boot_starter
+		force lib.spring_boot_starter_tomcat
+		force lib.spring_boot_starter_web
+		force lib.spring_boot_starter_logging
+		force lib.spring_boot_starter_actuator
+		force lib.spring_boot_starter_webflux
+		force lib.spring_boot_starter_websocket
+		force lib.spring_boot_starter_jdbc
+		force lib.spring_boot_starter_log4j2
+		//redis
+		force lib.jedis
+        force lib.spring_data_redis
+		//springcloud
+		force lib.spring_cloud_starter_openfeign
+		force lib.spring_cloud_starter_stream_kafka
+		// gateway springcloud
+		force lib.spring_cloud_starter_gateway
+		force lib.spring_cloud_gateway_webflux
+		force lib.sentinel_spring_cloud_gateway_adapter
+		//alibaba springcloud
+		force lib.spring_cloud_starter_alibaba_nacos_config
+		force lib.spring_cloud_starter_alibaba_nacos_discovery
+		force lib.spring_cloud_starter_alibaba_sentinel
+		/* spring security */
+		force lib.spring_security_core
+		force lib.spring_security_config
+		force lib.spring_security_web
+		force lib.spring_security_cas
+
+		/* spring session */
+		force lib.spring_session
+
+		/* hibernate */
+		force lib.hibernate_core
+		force lib.hibernate_c3p0
+		force lib.hibernate_validator
+
+		/* db */
+		force lib.h2
+		force lib.liquibase
+
+		/* libs */
+		force lib.amqp_client
+		force lib.aspectj
+		force lib.commons_compress
+		force lib.commons_fileupload
+		force lib.commons_io
+		force lib.dom4j
+		force lib.jackson_annotations
+		force lib.jackson_databind
+		force lib.jackson_datatype_jdk8
+		force lib.jackson_datatype_jsr310
+		force lib.jackson_core
+		force lib.javax_servlet_api
+		force lib.lombok
+		force lib.rhino
+		force lib.validation_api
+		force lib.easyexcel
+
+		/* log */
+		force lib.slf4j_api
+		force lib.log4j_web
+
+		/* testing */
+		force lib.junit5_jupiter_api
+		force lib.junit5_jupiter_engine
+		force lib.junit5_platform_launcher
+		force lib.junit5_platform_runner
+		force lib.junit5_vintage_engine
+		force lib.mockito_core
+		force lib.mockito_junit_jupiter
+		
+		/* feign-okhttp */
+		force lib.feign_okhttp
+
+
+		exclude group: "dom4j", module: "dom4j"
+		exclude group: "com.vaadin.external.google", module: "android-json"
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging';
+		exclude group: "com.zaxxer", module: "HikariCP-java7"
+		exclude group: 'javax.persistence', module: 'persistence-api'
+	}
+}
+
+compileJava.options*.compilerArgs = [
+	"-Xlint:serial", "-Xlint:varargs", "-Xlint:cast", "-Xlint:classfile",
+	"-Xlint:dep-ann", "-Xlint:divzero", "-Xlint:empty", "-Xlint:finally",
+	"-Xlint:overrides", "-Xlint:path", "-Xlint:processing", "-Xlint:static",
+	"-Xlint:try", "-Xlint:fallthrough", "-Xlint:rawtypes", "-Xlint:deprecation",
+	"-Xlint:unchecked", "-Xlint:-options"
+]
+
+compileTestJava.options*.compilerArgs = [
+	"-Xlint:serial", "-Xlint:-varargs", "-Xlint:cast", "-Xlint:classfile",
+	"-Xlint:dep-ann", "-Xlint:divzero", "-Xlint:empty", "-Xlint:finally",
+	"-Xlint:overrides", "-Xlint:path", "-Xlint:processing", "-Xlint:static",
+	"-Xlint:try", "-Xlint:-fallthrough", "-Xlint:-rawtypes", "-Xlint:-deprecation",
+	"-Xlint:-unchecked", "-Xlint:-options"
+]
+
+compileJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	options.encoding = 'UTF-8'
+}
+
+compileTestJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	options.encoding = 'UTF-8'
+	options.compilerArgs += "-parameters"
+}
+
+test {
+	exclude "**/*TestSuite.class"
+	systemProperty("java.awt.headless", "true")
+}
+
+dependencies {
+	//tool
+	api lib.commons_lang3
+	api lib.slf4j_api
+	api lib.fastjson
+	api lib.transmittable_thread_local
+	api lib.guava
+	/* Swagger2 */
+	api lib.springfox_swagger2
+	api lib.springfox_swagger_ui
+	//spring
+	api lib.spring_web
+    api lib.spring_tx
+	api lib.spring_boot_starter
+	api lib.spring_boot_autoconfigure
+	api lib.spring_boot_starter_logging
+	api lib.spring_boot_starter_actuator
+    implementation lib.HikariCP
+    implementation lib.ojdbc6
+    api lib.spring_boot_starter_web
+    
+	//test
+	testImplementation lib.spring_boot_starter_test
+	testCompile lib.h2
+	testCompile lib.junit5_jupiter_api
+	testRuntime lib.junit5_jupiter_engine
+	testCompile lib.junit5_platform_runner
+	testRuntime lib.junit5_platform_launcher
+	testRuntime lib.junit5_vintage_engine
+	testCompile lib.mockito_core
+	testCompile lib.mockito_junit_jupiter
+}
