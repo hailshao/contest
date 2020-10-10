@@ -20,7 +20,7 @@ public class FirstController {
     private FirstService firstService;
 
     /**
-     * http://127.0.0.1:8888/api/lab/v1/first/list
+     * http://127.0.0.1:8888/api/team7/v1/first/list
      */
     @GetMapping("list")
     public String listAssetBills() {
@@ -31,7 +31,7 @@ public class FirstController {
     }
 
     /**
-     * http://127.0.0.1:8888/api/lab/v1/first/testSystemMethod
+     * http://127.0.0.1:8888/api/team7/v1/first/testSystemMethod
      */
     @GetMapping("testSystemMethod")
     public String testSystemMethod() {
@@ -40,7 +40,7 @@ public class FirstController {
     }
 
     /**
-     * http://127.0.0.1:8888/api/lab/v1/first/testCustomMethod
+     * http://127.0.0.1:8888/api/team7/v1/first/testCustomMethod
      */
     @GetMapping("testCustomMethod")
     public String testCustomMethod() {

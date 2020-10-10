@@ -25,10 +25,10 @@ spring:
   # 配置数据源。默认使用本地1521端口上的oracle服务，用户密码均为nr。
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driverClassName: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@10.2.41.129:1521/cfsdb
-    username: shaohailin_01
-    password: shaohailin_01
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/contest?useUnicode=true&serverTimezone=UTC&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
     # 配置使用kikari连接池  连接数 = ((核心数 * 2) + 有效磁盘数)
     hikari:
       maximum-pool-size: 10

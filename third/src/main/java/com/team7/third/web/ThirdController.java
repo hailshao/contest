@@ -21,7 +21,7 @@ import java.util.concurrent.Future;
 @RequestMapping(CommonConst.API_BASE_PATH + "third")
 public class ThirdController {
     /**
-     * http://127.0.0.1:8888/api/lab/v1/third/list
+     * http://127.0.0.1:8888/api/team7/v1/third/list
      *
      * @return
      */

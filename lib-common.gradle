@@ -2,24 +2,24 @@ apply plugin: 'java'
 ext {
     gcGroup       = "com.team7"
     gcVersion     = "0.0.1.+"
-    lablib = [
-            lab_common:												"${gcGroup}:common:${gcVersion}",
-            lab_first:												"${gcGroup}:first:${gcVersion}",
-            lab_second:												"${gcGroup}:second:${gcVersion}",
-            lab_third:												"${gcGroup}:third:${gcVersion}",
+    team7lib = [
+            team7_common:												"${gcGroup}:common:${gcVersion}",
+            team7_first:												"${gcGroup}:first:${gcVersion}",
+            team7_second:												"${gcGroup}:second:${gcVersion}",
+            team7_third:												"${gcGroup}:third:${gcVersion}",
     ]
-    lib.putAll(lablib)
+    lib.putAll(team7lib)
 }
 configurations.all {
     resolutionStrategy {
-        force lib.lab_common
-        force lib.lab_first
-        force lib.lab_second
-        force lib.lab_third
+        force lib.team7_common
+        force lib.team7_first
+        force lib.team7_second
+        force lib.team7_third
     }
 }
 dependencies {
-    api lib.lab_common
+    api lib.team7_common
 }
 
 repositories {

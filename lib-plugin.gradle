@@ -417,7 +417,7 @@ dependencies {
 	api lib.spring_boot_starter_logging
 	api lib.spring_boot_starter_actuator
     implementation lib.HikariCP
-    implementation lib.ojdbc6
+    implementation lib.mysql_connector_java
     api lib.spring_boot_starter_web
     
 	//test
