@@ -1,25 +1,25 @@
 apply plugin: 'java'
 ext {
-    gcGroup       = "com.team7"
+    gcGroup       = "com.contest"
     gcVersion     = "0.0.1.+"
-    team7lib = [
-            team7_common:												"${gcGroup}:common:${gcVersion}",
-            team7_first:												"${gcGroup}:first:${gcVersion}",
-            team7_second:												"${gcGroup}:second:${gcVersion}",
-            team7_third:												"${gcGroup}:third:${gcVersion}",
+    contestlib = [
+            contest_common:												"${gcGroup}:common:${gcVersion}",
+            contest_first:												"${gcGroup}:first:${gcVersion}",
+            contest_second:												"${gcGroup}:second:${gcVersion}",
+            contest_third:												"${gcGroup}:third:${gcVersion}",
     ]
-    lib.putAll(team7lib)
+    lib.putAll(contestlib)
 }
 configurations.all {
     resolutionStrategy {
-        force lib.team7_common
-        force lib.team7_first
-        force lib.team7_second
-        force lib.team7_third
+        force lib.contest_common
+        force lib.contest_first
+        force lib.contest_second
+        force lib.contest_third
     }
 }
 dependencies {
-    api lib.team7_common
+    api lib.contest_common
 }
 
 repositories {

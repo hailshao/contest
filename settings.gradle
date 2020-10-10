@@ -1,4 +1,4 @@
-rootProject.name = 'team7'
+rootProject.name = 'contest'
 include('common')
 include('first')
 include('second')

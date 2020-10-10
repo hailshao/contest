@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.team7.first.autoconfigure.FirstConfiguration
+com.contest.first.autoconfigure.FirstConfiguration

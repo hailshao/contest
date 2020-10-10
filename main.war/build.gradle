@@ -3,7 +3,7 @@ apply from: '../lib-plugin.gradle'
 apply from: '../lib-common.gradle'
 
 dependencies {
-    implementation lib.team7_first
-    implementation lib.team7_second
-    implementation lib.team7_third
+    implementation lib.contest_first
+    implementation lib.contest_second
+    implementation lib.contest_third
 }
