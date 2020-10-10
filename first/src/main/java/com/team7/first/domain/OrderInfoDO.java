@@ -8,9 +8,9 @@ import javax.persistence.Table;
 /**
  * create table ORDER_INFO
  * (
- * id     VARCHAR2(36) not null primary key,
- * user_id   VARCHAR2(36),
- * goods_count number(8)
+ * id     VARCHAR(36) not null primary key,
+ * user_id   VARCHAR(36),
+ * goods_count int(8)
  * )
  * 订单测试实体对象
  *

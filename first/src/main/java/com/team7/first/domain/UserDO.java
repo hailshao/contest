@@ -8,9 +8,9 @@ import javax.persistence.Table;
 /**
  * create table USER_TEST
  * (
- * id     VARCHAR2(36) not null,
- * name   VARCHAR2(20),
- * gender VARCHAR2(2)
+ * id     VARCHAR(36) not null,
+ * name   VARCHAR(20),
+ * gender VARCHAR(2)
  * )
  * 用户测试实体对象
  *
