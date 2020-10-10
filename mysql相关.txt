@@ -1,0 +1,26 @@
+--安装并启动数据库
+mysqld --install MySQL
+mysqld --initialize-insecure
+net start mysql
+
+--创建数据库
+CREATE DATABASE contest character set 'utf8' collate 'utf8_general_ci';
+
+--导入数据库
+cd E:\soft\mysql-5.7.21-winx64\bin
+mysql -u root -h localhost
+use contest;
+source E:\soft\contest.sql
+
+--导入报错解决方案
+1、utf16转utf8
+2、E:\soft\mysql-5.7.21-winx64下创建my.ini,添加内容
+[mysqld]
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+参考https://blog.csdn.net/qq_27828675/article/details/80304274
+
+--设置密码
+use mysql;
+SET PASSWORD FOR root=PASSWORD('root');
+update user set authentication_string=password('root') where user='root';
+flush privileges;
