@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.contest.first.dao.OrderInfoDaoWay2">
+
+    <!--    数据库字段和java属性名一致时-->
+    <!--    <select id="testJoin" parameterType="map" resultType="com.contestm7.first.domain.OrderInfoDO">-->
+    <!--        select o.* from ORDER_INFO o join USER_TEST u on u.id=o.user_id where 1=1-->
+    <!--        <if test="userName != null">-->
+    <!--            AND u.name = #{userName}-->
+    <!--        </if>-->
+    <!--    </select>-->
+
+    <!--   数据库字段和java属性名不一致时： property为java文件成员变量，column为数据库字段，字段不一致的字段需要配置-->
+    <resultMap id="orderResultMap" type="com.contest.first.domain.OrderInfoDO">
+        <result property="userId" column="user_id"/>
+        <result property="goodsCount" column="goods_count"/>
+    </resultMap>
+
+    <select id="testJoin" parameterType="map" resultMap="orderResultMap">
+        select o.* from ORDER_INFO o join USER_TEST u on u.id=o.user_id where 1=1
+        <if test="userName != null">
+            AND u.name = #{userName}
+        </if>
+    </select>
+</mapper>

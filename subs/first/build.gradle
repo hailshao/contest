@@ -1,0 +1,4 @@
+dependencies {
+    runtime files('lib/myExcel.jar')
+    api lib.contest_common
+}

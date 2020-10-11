@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.contest.first.dao.UserDaoWay2">
+
+    <!-- 查询所有用户-->
+    <select id="getAllUser" resultType="com.contest.first.domain.UserDO">
+        select * from USER_TEST
+    </select>
+
+    <!-- 按条件查询用户-->
+    <select id="getUser" resultType="com.contest.first.domain.UserDO">
+        select * from USER_TEST where 1=1
+        <if test="id != null">
+            AND id like #{id}
+        </if>
+        <if test="name != null">
+            AND NAME like #{name}
+        </if>
+        <if test="gender != null">
+            AND GENDER like #{gender}
+        </if>
+    </select>
+
+    <!-- 新增-->
+    <insert id="insertUser" parameterType="com.contest.first.domain.UserDO">
+        insert into USER_TEST(ID,NAME,GENDER) values(#{id},#{name},#{gender})
+    </insert>
+
+    <!-- 新增-->
+    <insert id="batchInsertUser" parameterType="java.util.List">
+        insert into USER_TEST(ID,NAME,GENDER)
+        <foreach item="item" index="index" collection="list" separator="union all">
+            (
+            SELECT
+            #{item.id}, #{item.name}, #{item.gender}
+            FROM DUAL
+            )
+        </foreach>
+    </insert>
+
+    <!-- 修改-->
+    <insert id="updateUserById" parameterType="com.contest.first.domain.UserDO">
+        update USER_TEST set NAME=#{name},GENDER=#{gender} where ID=#{id}
+    </insert>
+
+    <!-- 删除-->
+    <delete id="deleteUser" parameterType="com.contest.first.domain.UserDO">
+        delete from USER_TEST where 1=1
+        <if test="id != null">
+            AND id like #{id}
+        </if>
+        <if test="name != null">
+            AND NAME like #{name}
+        </if>
+        <if test="gender != null">
+            AND GENDER like #{gender}
+        </if>
+    </delete>
+
+</mapper>
