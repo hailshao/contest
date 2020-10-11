@@ -1,9 +1,14 @@
 package com.contest.common.config;
 
+import com.lab.common.filter.WebCorsFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.util.Arrays;
 
 /**
  * @author zhangsan
@@ -30,4 +35,12 @@ public class CommonConfiguration {
 //
 //        return sessionFactory.getObject();
 //    }
+    @Bean
+    public FilterRegistrationBean<WebCorsFilter> webCorsFilter() {
+        FilterRegistrationBean<WebCorsFilter> registrationBean = new FilterRegistrationBean<>();
+        registrationBean.setFilter(new WebCorsFilter());
+        registrationBean.setUrlPatterns(Arrays.asList("/*"));
+        registrationBean.setOrder(Integer.MIN_VALUE);
+        return registrationBean;
+    }
 }
