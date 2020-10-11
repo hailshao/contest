@@ -1,4 +1,4 @@
-package com.lab.common.filter;
+package com.contest.common.filter;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
