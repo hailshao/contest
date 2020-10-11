@@ -1,6 +1,7 @@
 apply from: "author.gradle"
 apply from: '../lib-plugin.gradle'
 apply from: '../lib-common.gradle'
+apply plugin: 'war'
 
 dependencies {
     implementation lib.contest_first

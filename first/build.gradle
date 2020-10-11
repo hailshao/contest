@@ -1,3 +1,0 @@
-dependencies {
-    runtime files('lib/myExcel.jar')
-}

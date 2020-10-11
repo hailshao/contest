@@ -1,5 +1,3 @@
 rootProject.name = 'contest'
 include('common')
-include('first')
-include('second')
-include('third')
+//include('subs')

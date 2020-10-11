@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.contest.third.autoconfigure.ThirdConfiguration

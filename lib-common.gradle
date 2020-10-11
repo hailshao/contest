@@ -19,7 +19,7 @@ configurations.all {
     }
 }
 dependencies {
-    api lib.contest_common
+//    api lib.contest_common
 }
 
 repositories {
@@ -27,8 +27,8 @@ repositories {
 //        url "http://nvwa.jiuqi.com.cn/nexus/repository/maven-ent-public/"
         url "http://maven.aliyun.com/nexus/content/groups/public/"
         credentials {
-            username = nexusUsername
-            password = nexusPassword
+//            username = nexusUsername
+//            password = nexusPassword
         }
     }
 }

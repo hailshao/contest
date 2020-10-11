@@ -9,4 +9,5 @@
 
 rootProject.name = 'main.war'
 includeBuild("../")
-include('common')
+includeBuild("../subs")
+//include('common')
