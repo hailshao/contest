@@ -1,6 +1,6 @@
 package com.contest.common.config;
 
-import com.lab.common.filter.WebCorsFilter;
+import com.contest.common.filter.WebCorsFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
