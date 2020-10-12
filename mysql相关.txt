@@ -24,3 +24,8 @@ use mysql;
 SET PASSWORD FOR root=PASSWORD('root');
 update user set authentication_string=password('root') where user='root';
 flush privileges;
+
+--其它用户无法访问
+use mysql;
+update user set host = '%' where user = 'root';
+FLUSH PRIVILEGES;
