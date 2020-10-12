@@ -26,7 +26,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/contest?useUnicode=true&serverTimezone=UTC&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://10.2.6.8:3306/contest?useUnicode=true&serverTimezone=UTC&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: root
     # 配置使用kikari连接池  连接数 = ((核心数 * 2) + 有效磁盘数)
